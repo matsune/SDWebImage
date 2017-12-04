@@ -45,6 +45,11 @@
 }
 
 #pragma mark - Decode
+
+- (void)setQuality:(NSUInteger)quality {
+    _quality = quality;
+}
+
 - (BOOL)canDecodeFromData:(nullable NSData *)data {
     return ([NSData sd_imageFormatForImageData:data] == SDImageFormatWebP);
 }
@@ -397,7 +402,7 @@
     uint8_t *rgba = (uint8_t *)CFDataGetBytePtr(dataRef);
     
     uint8_t *data = NULL;
-    float quality = 100.0;
+    float quality = 50.0;
     size_t size = WebPEncodeRGBA(rgba, (int)width, (int)height, (int)bytesPerRow, quality, &data);
     CFRelease(dataRef);
     rgba = NULL;

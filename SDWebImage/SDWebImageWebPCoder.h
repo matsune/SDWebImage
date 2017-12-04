@@ -16,6 +16,8 @@
  */
 @interface SDWebImageWebPCoder : NSObject <SDWebImageProgressiveCoder>
 
+@property (assign, nonatomic) float quality;
+
 + (nonnull instancetype)sharedCoder;
 
 @end
